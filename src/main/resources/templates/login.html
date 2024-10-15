@@ -21,17 +21,17 @@
         <h2 class="text-center">Login</h2>
         <form th:action="@{/login}" method="post">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Digite seu nome de usuário" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha" required>
             </div>
 
             <!-- Mensagem de erro para login inválido -->
-            <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                Invalid username or password.
+            <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+                <span th:text="${errorMessage}">Nome de usuário ou senha inválidos.</span>
             </div>
 
             <div class="form-group">
@@ -40,7 +40,7 @@
         </form>
 
         <p class="text-center">
-            <a th:href="@{/register}">Don't have an account? Register here</a>
+            <a th:href="@{/register}">Não tem uma conta? Registre-se aqui</a>
         </p>
     </div>
 </div>
